@@ -36,6 +36,11 @@ def checkForDraw():
     return True
 
 def insert(player, position):
+    if position >= 10 or position <= 0:
+        print("Invalid Position")
+        position = int(input("Enter the new position (1-9): "))
+        insert(player, position)
+        return
     if board[position] == " ":
         board[position] = player
         showBoard()
